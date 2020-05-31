@@ -143,9 +143,9 @@ describe("Use Case Testing", () => {
                 ...extendableSchema
             })
             this.metadata.types = {
-                "hero": 0,
-                "npc": 1,
-                "enemy": 2
+                "HERO": 0,
+                "NPC": 1,
+                "ENEMY": 2
             }
             this._entityName = "UserEntity"
         }
@@ -155,11 +155,8 @@ describe("Use Case Testing", () => {
             return this.type
         }
     }
-    UserEntity.constants = {
-        "hero":"hero",
-        "npc":"npc",
-        "enemy":"enemy"
-    }
+    UserEntity.constants = Entity.createConstant(['hero', 'npc','enemy']) 
+
     describe("Use Case Testing Entity is extendable as EntityBase", () => {
         var hero
         beforeEach(()=>{
@@ -169,7 +166,7 @@ describe("Use Case Testing", () => {
             expect(hero instanceof UserEntity).toBeTruthy()
         })
         test("Can use extend methods", () => {
-            hero.type = hero.metadata.types[UserEntity.constants.hero]
+            hero.type = hero.metadata.types[UserEntity.constants.HERO]
             hero.name = "TheLegned"
             expect( hero.validate()).toBeTruthy()
             expect(hero.getType()).toBe(0)
@@ -190,7 +187,7 @@ describe("Use Case Testing", () => {
         }
 
         var bat = new EnemyEntity()
-        bat.type = bat.metadata.types[UserEntity.constants.enemy]
+        bat.type = bat.metadata.types[UserEntity.constants.ENEMY]
         bat.name = "Batrider"
         bat.damage = 20
         test("Able to call entended method", () => {
