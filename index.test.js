@@ -117,11 +117,12 @@ describe("Unit Testing", () => {
         })
     })
     describe("Unit testing for createConstant", ()=> {
-        var CONSTANT = Entity.createConstant(["red","blue"])
+        var CONSTANT = Entity.createConstant(["red","blue",15])
 
         test("Able to create constant", ()=>{
             expect(CONSTANT.RED).toBe("RED")
             expect(CONSTANT.BLUE).toBe("BLUE")
+            expect(CONSTANT[15]).toBe("15")
         })
 
         test("Able to Create empty constant", ()=>{
