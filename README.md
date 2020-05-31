@@ -9,6 +9,41 @@ Providing simple Entity manipulations with the benefit of
 ### How to use
 * detail in the test file *
 
+##### Basic Usage
+An example how it is used, follow Extended Usage for practical use
+
+```javascript
+
+// create schema, basic or your library of choice i.e Joi
+var schema = {name: ""}
+var joiSchema = {name: Joi.string()}
+
+// create your validator method or follow Extended usage for Joi validator
+var validator = () => {
+    if (this._data.name !== '') throw new Error("Name is required")
+    return true
+}
+
+var simpleEntity = new Entity(
+    schema,
+    validator
+)
+
+// populate the entity
+simpleEntity.name = "Some Name"
+simpleEntity.validate()
+
+// use data from entity
+someDatabase.create(simpleEntity._data)
+    .then((result)=>{
+        myAccount.set(result.data)
+    })
+
+```
+
+#### Extended Usage
+creating your own entity type, and helper methods for the entity
+
 ```javascript
 // Create your entity
 class AccountEntity extends Entity {
@@ -74,4 +109,7 @@ Instance
 - validate()    validate with the validator against _data and _schema, you'll need to create the validator method
 - set(data)     set/update new data, will ignore and throw warning for any property that dont belong to the schema
 
+### TODO
+- Allow overide default property getters
+- Allow overide default property setters, this gives ability to set default values such as date/time, id, or any generated fields
 
