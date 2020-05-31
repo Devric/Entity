@@ -1,13 +1,13 @@
 ## Entity
 
-Simple entity utility for uncle Bobs Clean Architecture
-- structure for entity data
-- schema validation
+Basic entity utility for uncle Bobs Clean Architecture
+Providing simple Entity manipulations with the benefit of
+- consistency in entity structure for entity data
+- choose your own schema methods
+- create your own validator
 
 ### How to use
-** detail in the test file
-
-sample key only schema with no validation
+* detail in the test file *
 
 ```javascript
 // Create your entity
