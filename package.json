@@ -1,0 +1,22 @@
+{
+  "name": "authentication-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "nedb": "^1.8.0"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
+  },
+  "jest" : {
+    "collectCoverage": true
+  }
+}
